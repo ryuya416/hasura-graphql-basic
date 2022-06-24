@@ -1,10 +1,16 @@
-import { gql } from '@apollo/client';
-import * as Apollo from '@apollo/client';
+import { gql } from "@apollo/client";
+import * as Apollo from "@apollo/client";
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type Exact<T extends { [key: string]: unknown }> = {
+  [K in keyof T]: T[K];
+};
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]?: Maybe<T[SubKey]>;
+};
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]: Maybe<T[SubKey]>;
+};
 const defaultOptions = {} as const;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -14,93 +20,90 @@ export type Scalars = {
   Int: number;
   Float: number;
   timestamptz: any;
-  uuid: any;
+  uuid: string;
 };
 
 /** Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'. */
 export type String_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars['String']>;
-  _gt?: InputMaybe<Scalars['String']>;
-  _gte?: InputMaybe<Scalars['String']>;
+  _eq?: InputMaybe<Scalars["String"]>;
+  _gt?: InputMaybe<Scalars["String"]>;
+  _gte?: InputMaybe<Scalars["String"]>;
   /** does the column match the given case-insensitive pattern */
-  _ilike?: InputMaybe<Scalars['String']>;
-  _in?: InputMaybe<Array<Scalars['String']>>;
+  _ilike?: InputMaybe<Scalars["String"]>;
+  _in?: InputMaybe<Array<Scalars["String"]>>;
   /** does the column match the given POSIX regular expression, case insensitive */
-  _iregex?: InputMaybe<Scalars['String']>;
-  _is_null?: InputMaybe<Scalars['Boolean']>;
+  _iregex?: InputMaybe<Scalars["String"]>;
+  _is_null?: InputMaybe<Scalars["Boolean"]>;
   /** does the column match the given pattern */
-  _like?: InputMaybe<Scalars['String']>;
-  _lt?: InputMaybe<Scalars['String']>;
-  _lte?: InputMaybe<Scalars['String']>;
-  _neq?: InputMaybe<Scalars['String']>;
+  _like?: InputMaybe<Scalars["String"]>;
+  _lt?: InputMaybe<Scalars["String"]>;
+  _lte?: InputMaybe<Scalars["String"]>;
+  _neq?: InputMaybe<Scalars["String"]>;
   /** does the column NOT match the given case-insensitive pattern */
-  _nilike?: InputMaybe<Scalars['String']>;
-  _nin?: InputMaybe<Array<Scalars['String']>>;
+  _nilike?: InputMaybe<Scalars["String"]>;
+  _nin?: InputMaybe<Array<Scalars["String"]>>;
   /** does the column NOT match the given POSIX regular expression, case insensitive */
-  _niregex?: InputMaybe<Scalars['String']>;
+  _niregex?: InputMaybe<Scalars["String"]>;
   /** does the column NOT match the given pattern */
-  _nlike?: InputMaybe<Scalars['String']>;
+  _nlike?: InputMaybe<Scalars["String"]>;
   /** does the column NOT match the given POSIX regular expression, case sensitive */
-  _nregex?: InputMaybe<Scalars['String']>;
+  _nregex?: InputMaybe<Scalars["String"]>;
   /** does the column NOT match the given SQL regular expression */
-  _nsimilar?: InputMaybe<Scalars['String']>;
+  _nsimilar?: InputMaybe<Scalars["String"]>;
   /** does the column match the given POSIX regular expression, case sensitive */
-  _regex?: InputMaybe<Scalars['String']>;
+  _regex?: InputMaybe<Scalars["String"]>;
   /** does the column match the given SQL regular expression */
-  _similar?: InputMaybe<Scalars['String']>;
+  _similar?: InputMaybe<Scalars["String"]>;
 };
 
 /** columns and relationships of "groups" */
 export type Groups = {
-  __typename?: 'groups';
-  id: Scalars['uuid'];
-  name: Scalars['String'];
+  __typename?: "groups";
+  id: Scalars["uuid"];
+  name: Scalars["String"];
   /** An array relationship */
   users: Array<Users>;
   /** An aggregate relationship */
   users_aggregate: Users_Aggregate;
 };
 
-
 /** columns and relationships of "groups" */
 export type GroupsUsersArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Users_Order_By>>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
 
-
 /** columns and relationships of "groups" */
 export type GroupsUsers_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Users_Order_By>>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
 
 /** aggregated selection of "groups" */
 export type Groups_Aggregate = {
-  __typename?: 'groups_aggregate';
+  __typename?: "groups_aggregate";
   aggregate?: Maybe<Groups_Aggregate_Fields>;
   nodes: Array<Groups>;
 };
 
 /** aggregate fields of "groups" */
 export type Groups_Aggregate_Fields = {
-  __typename?: 'groups_aggregate_fields';
-  count: Scalars['Int'];
+  __typename?: "groups_aggregate_fields";
+  count: Scalars["Int"];
   max?: Maybe<Groups_Max_Fields>;
   min?: Maybe<Groups_Min_Fields>;
 };
 
-
 /** aggregate fields of "groups" */
 export type Groups_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Groups_Select_Column>>;
-  distinct?: InputMaybe<Scalars['Boolean']>;
+  distinct?: InputMaybe<Scalars["Boolean"]>;
 };
 
 /** Boolean expression to filter rows from the table "groups". All fields are combined with a logical 'AND'. */
@@ -116,35 +119,35 @@ export type Groups_Bool_Exp = {
 /** unique or primary key constraints on table "groups" */
 export enum Groups_Constraint {
   /** unique or primary key constraint on columns "id" */
-  GroupsPkey = 'groups_pkey'
+  GroupsPkey = "groups_pkey",
 }
 
 /** input type for inserting data into table "groups" */
 export type Groups_Insert_Input = {
-  id?: InputMaybe<Scalars['uuid']>;
-  name?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars["uuid"]>;
+  name?: InputMaybe<Scalars["String"]>;
   users?: InputMaybe<Users_Arr_Rel_Insert_Input>;
 };
 
 /** aggregate max on columns */
 export type Groups_Max_Fields = {
-  __typename?: 'groups_max_fields';
-  id?: Maybe<Scalars['uuid']>;
-  name?: Maybe<Scalars['String']>;
+  __typename?: "groups_max_fields";
+  id?: Maybe<Scalars["uuid"]>;
+  name?: Maybe<Scalars["String"]>;
 };
 
 /** aggregate min on columns */
 export type Groups_Min_Fields = {
-  __typename?: 'groups_min_fields';
-  id?: Maybe<Scalars['uuid']>;
-  name?: Maybe<Scalars['String']>;
+  __typename?: "groups_min_fields";
+  id?: Maybe<Scalars["uuid"]>;
+  name?: Maybe<Scalars["String"]>;
 };
 
 /** response of any mutation on the table "groups" */
 export type Groups_Mutation_Response = {
-  __typename?: 'groups_mutation_response';
+  __typename?: "groups_mutation_response";
   /** number of rows affected by the mutation */
-  affected_rows: Scalars['Int'];
+  affected_rows: Scalars["Int"];
   /** data from the rows affected by the mutation */
   returning: Array<Groups>;
 };
@@ -172,34 +175,34 @@ export type Groups_Order_By = {
 
 /** primary key columns input for table: groups */
 export type Groups_Pk_Columns_Input = {
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 };
 
 /** select columns of table "groups" */
 export enum Groups_Select_Column {
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  Name = 'name'
+  Name = "name",
 }
 
 /** input type for updating data in table "groups" */
 export type Groups_Set_Input = {
-  id?: InputMaybe<Scalars['uuid']>;
-  name?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars["uuid"]>;
+  name?: InputMaybe<Scalars["String"]>;
 };
 
 /** update columns of table "groups" */
 export enum Groups_Update_Column {
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  Name = 'name'
+  Name = "name",
 }
 
 /** mutation root */
 export type Mutation_Root = {
-  __typename?: 'mutation_root';
+  __typename?: "mutation_root";
   /** delete data from the table: "groups" */
   delete_groups?: Maybe<Groups_Mutation_Response>;
   /** delete single row from the table: "groups" */
@@ -250,54 +253,45 @@ export type Mutation_Root = {
   update_users_by_pk?: Maybe<Users>;
 };
 
-
 /** mutation root */
 export type Mutation_RootDelete_GroupsArgs = {
   where: Groups_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootDelete_Groups_By_PkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 };
-
 
 /** mutation root */
 export type Mutation_RootDelete_Profile_UsersArgs = {
   where: Profile_Users_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootDelete_Profile_Users_By_PkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 };
-
 
 /** mutation root */
 export type Mutation_RootDelete_ProfilesArgs = {
   where: Profiles_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootDelete_Profiles_By_PkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 };
-
 
 /** mutation root */
 export type Mutation_RootDelete_UsersArgs = {
   where: Users_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootDelete_Users_By_PkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 };
-
 
 /** mutation root */
 export type Mutation_RootInsert_GroupsArgs = {
@@ -305,13 +299,11 @@ export type Mutation_RootInsert_GroupsArgs = {
   on_conflict?: InputMaybe<Groups_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsert_Groups_OneArgs = {
   object: Groups_Insert_Input;
   on_conflict?: InputMaybe<Groups_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsert_Profile_UsersArgs = {
@@ -319,13 +311,11 @@ export type Mutation_RootInsert_Profile_UsersArgs = {
   on_conflict?: InputMaybe<Profile_Users_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsert_Profile_Users_OneArgs = {
   object: Profile_Users_Insert_Input;
   on_conflict?: InputMaybe<Profile_Users_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsert_ProfilesArgs = {
@@ -333,13 +323,11 @@ export type Mutation_RootInsert_ProfilesArgs = {
   on_conflict?: InputMaybe<Profiles_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsert_Profiles_OneArgs = {
   object: Profiles_Insert_Input;
   on_conflict?: InputMaybe<Profiles_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsert_UsersArgs = {
@@ -347,13 +335,11 @@ export type Mutation_RootInsert_UsersArgs = {
   on_conflict?: InputMaybe<Users_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsert_Users_OneArgs = {
   object: Users_Insert_Input;
   on_conflict?: InputMaybe<Users_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdate_GroupsArgs = {
@@ -361,13 +347,11 @@ export type Mutation_RootUpdate_GroupsArgs = {
   where: Groups_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_Groups_By_PkArgs = {
   _set?: InputMaybe<Groups_Set_Input>;
   pk_columns: Groups_Pk_Columns_Input;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdate_Profile_UsersArgs = {
@@ -375,13 +359,11 @@ export type Mutation_RootUpdate_Profile_UsersArgs = {
   where: Profile_Users_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_Profile_Users_By_PkArgs = {
   _set?: InputMaybe<Profile_Users_Set_Input>;
   pk_columns: Profile_Users_Pk_Columns_Input;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdate_ProfilesArgs = {
@@ -389,20 +371,17 @@ export type Mutation_RootUpdate_ProfilesArgs = {
   where: Profiles_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_Profiles_By_PkArgs = {
   _set?: InputMaybe<Profiles_Set_Input>;
   pk_columns: Profiles_Pk_Columns_Input;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_UsersArgs = {
   _set?: InputMaybe<Users_Set_Input>;
   where: Users_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdate_Users_By_PkArgs = {
@@ -413,51 +392,50 @@ export type Mutation_RootUpdate_Users_By_PkArgs = {
 /** column ordering options */
 export enum Order_By {
   /** in ascending order, nulls last */
-  Asc = 'asc',
+  Asc = "asc",
   /** in ascending order, nulls first */
-  AscNullsFirst = 'asc_nulls_first',
+  AscNullsFirst = "asc_nulls_first",
   /** in ascending order, nulls last */
-  AscNullsLast = 'asc_nulls_last',
+  AscNullsLast = "asc_nulls_last",
   /** in descending order, nulls first */
-  Desc = 'desc',
+  Desc = "desc",
   /** in descending order, nulls first */
-  DescNullsFirst = 'desc_nulls_first',
+  DescNullsFirst = "desc_nulls_first",
   /** in descending order, nulls last */
-  DescNullsLast = 'desc_nulls_last'
+  DescNullsLast = "desc_nulls_last",
 }
 
 /** columns and relationships of "profile_users" */
 export type Profile_Users = {
-  __typename?: 'profile_users';
-  id: Scalars['uuid'];
+  __typename?: "profile_users";
+  id: Scalars["uuid"];
   /** An object relationship */
   profile: Profiles;
-  profile_id: Scalars['uuid'];
+  profile_id: Scalars["uuid"];
   /** An object relationship */
   user: Users;
-  user_id: Scalars['uuid'];
+  user_id: Scalars["uuid"];
 };
 
 /** aggregated selection of "profile_users" */
 export type Profile_Users_Aggregate = {
-  __typename?: 'profile_users_aggregate';
+  __typename?: "profile_users_aggregate";
   aggregate?: Maybe<Profile_Users_Aggregate_Fields>;
   nodes: Array<Profile_Users>;
 };
 
 /** aggregate fields of "profile_users" */
 export type Profile_Users_Aggregate_Fields = {
-  __typename?: 'profile_users_aggregate_fields';
-  count: Scalars['Int'];
+  __typename?: "profile_users_aggregate_fields";
+  count: Scalars["Int"];
   max?: Maybe<Profile_Users_Max_Fields>;
   min?: Maybe<Profile_Users_Min_Fields>;
 };
 
-
 /** aggregate fields of "profile_users" */
 export type Profile_Users_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Profile_Users_Select_Column>>;
-  distinct?: InputMaybe<Scalars['Boolean']>;
+  distinct?: InputMaybe<Scalars["Boolean"]>;
 };
 
 /** order by aggregate values of table "profile_users" */
@@ -489,24 +467,24 @@ export type Profile_Users_Bool_Exp = {
 /** unique or primary key constraints on table "profile_users" */
 export enum Profile_Users_Constraint {
   /** unique or primary key constraint on columns "id" */
-  ProfileUsersPkey = 'profile_users_pkey'
+  ProfileUsersPkey = "profile_users_pkey",
 }
 
 /** input type for inserting data into table "profile_users" */
 export type Profile_Users_Insert_Input = {
-  id?: InputMaybe<Scalars['uuid']>;
+  id?: InputMaybe<Scalars["uuid"]>;
   profile?: InputMaybe<Profiles_Obj_Rel_Insert_Input>;
-  profile_id?: InputMaybe<Scalars['uuid']>;
+  profile_id?: InputMaybe<Scalars["uuid"]>;
   user?: InputMaybe<Users_Obj_Rel_Insert_Input>;
-  user_id?: InputMaybe<Scalars['uuid']>;
+  user_id?: InputMaybe<Scalars["uuid"]>;
 };
 
 /** aggregate max on columns */
 export type Profile_Users_Max_Fields = {
-  __typename?: 'profile_users_max_fields';
-  id?: Maybe<Scalars['uuid']>;
-  profile_id?: Maybe<Scalars['uuid']>;
-  user_id?: Maybe<Scalars['uuid']>;
+  __typename?: "profile_users_max_fields";
+  id?: Maybe<Scalars["uuid"]>;
+  profile_id?: Maybe<Scalars["uuid"]>;
+  user_id?: Maybe<Scalars["uuid"]>;
 };
 
 /** order by max() on columns of table "profile_users" */
@@ -518,10 +496,10 @@ export type Profile_Users_Max_Order_By = {
 
 /** aggregate min on columns */
 export type Profile_Users_Min_Fields = {
-  __typename?: 'profile_users_min_fields';
-  id?: Maybe<Scalars['uuid']>;
-  profile_id?: Maybe<Scalars['uuid']>;
-  user_id?: Maybe<Scalars['uuid']>;
+  __typename?: "profile_users_min_fields";
+  id?: Maybe<Scalars["uuid"]>;
+  profile_id?: Maybe<Scalars["uuid"]>;
+  user_id?: Maybe<Scalars["uuid"]>;
 };
 
 /** order by min() on columns of table "profile_users" */
@@ -533,9 +511,9 @@ export type Profile_Users_Min_Order_By = {
 
 /** response of any mutation on the table "profile_users" */
 export type Profile_Users_Mutation_Response = {
-  __typename?: 'profile_users_mutation_response';
+  __typename?: "profile_users_mutation_response";
   /** number of rows affected by the mutation */
-  affected_rows: Scalars['Int'];
+  affected_rows: Scalars["Int"];
   /** data from the rows affected by the mutation */
   returning: Array<Profile_Users>;
 };
@@ -558,41 +536,41 @@ export type Profile_Users_Order_By = {
 
 /** primary key columns input for table: profile_users */
 export type Profile_Users_Pk_Columns_Input = {
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 };
 
 /** select columns of table "profile_users" */
 export enum Profile_Users_Select_Column {
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  ProfileId = 'profile_id',
+  ProfileId = "profile_id",
   /** column name */
-  UserId = 'user_id'
+  UserId = "user_id",
 }
 
 /** input type for updating data in table "profile_users" */
 export type Profile_Users_Set_Input = {
-  id?: InputMaybe<Scalars['uuid']>;
-  profile_id?: InputMaybe<Scalars['uuid']>;
-  user_id?: InputMaybe<Scalars['uuid']>;
+  id?: InputMaybe<Scalars["uuid"]>;
+  profile_id?: InputMaybe<Scalars["uuid"]>;
+  user_id?: InputMaybe<Scalars["uuid"]>;
 };
 
 /** update columns of table "profile_users" */
 export enum Profile_Users_Update_Column {
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  ProfileId = 'profile_id',
+  ProfileId = "profile_id",
   /** column name */
-  UserId = 'user_id'
+  UserId = "user_id",
 }
 
 /** columns and relationships of "profiles" */
 export type Profiles = {
-  __typename?: 'profiles';
-  id: Scalars['uuid'];
-  nickname: Scalars['String'];
+  __typename?: "profiles";
+  id: Scalars["uuid"];
+  nickname: Scalars["String"];
   /** An array relationship */
   profile_users: Array<Profile_Users>;
   /** An aggregate relationship */
@@ -601,46 +579,43 @@ export type Profiles = {
   user?: Maybe<Users>;
 };
 
-
 /** columns and relationships of "profiles" */
 export type ProfilesProfile_UsersArgs = {
   distinct_on?: InputMaybe<Array<Profile_Users_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Profile_Users_Order_By>>;
   where?: InputMaybe<Profile_Users_Bool_Exp>;
 };
 
-
 /** columns and relationships of "profiles" */
 export type ProfilesProfile_Users_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Profile_Users_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Profile_Users_Order_By>>;
   where?: InputMaybe<Profile_Users_Bool_Exp>;
 };
 
 /** aggregated selection of "profiles" */
 export type Profiles_Aggregate = {
-  __typename?: 'profiles_aggregate';
+  __typename?: "profiles_aggregate";
   aggregate?: Maybe<Profiles_Aggregate_Fields>;
   nodes: Array<Profiles>;
 };
 
 /** aggregate fields of "profiles" */
 export type Profiles_Aggregate_Fields = {
-  __typename?: 'profiles_aggregate_fields';
-  count: Scalars['Int'];
+  __typename?: "profiles_aggregate_fields";
+  count: Scalars["Int"];
   max?: Maybe<Profiles_Max_Fields>;
   min?: Maybe<Profiles_Min_Fields>;
 };
 
-
 /** aggregate fields of "profiles" */
 export type Profiles_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Profiles_Select_Column>>;
-  distinct?: InputMaybe<Scalars['Boolean']>;
+  distinct?: InputMaybe<Scalars["Boolean"]>;
 };
 
 /** Boolean expression to filter rows from the table "profiles". All fields are combined with a logical 'AND'. */
@@ -657,36 +632,36 @@ export type Profiles_Bool_Exp = {
 /** unique or primary key constraints on table "profiles" */
 export enum Profiles_Constraint {
   /** unique or primary key constraint on columns "id" */
-  ProfilesPkey = 'profiles_pkey'
+  ProfilesPkey = "profiles_pkey",
 }
 
 /** input type for inserting data into table "profiles" */
 export type Profiles_Insert_Input = {
-  id?: InputMaybe<Scalars['uuid']>;
-  nickname?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars["uuid"]>;
+  nickname?: InputMaybe<Scalars["String"]>;
   profile_users?: InputMaybe<Profile_Users_Arr_Rel_Insert_Input>;
   user?: InputMaybe<Users_Obj_Rel_Insert_Input>;
 };
 
 /** aggregate max on columns */
 export type Profiles_Max_Fields = {
-  __typename?: 'profiles_max_fields';
-  id?: Maybe<Scalars['uuid']>;
-  nickname?: Maybe<Scalars['String']>;
+  __typename?: "profiles_max_fields";
+  id?: Maybe<Scalars["uuid"]>;
+  nickname?: Maybe<Scalars["String"]>;
 };
 
 /** aggregate min on columns */
 export type Profiles_Min_Fields = {
-  __typename?: 'profiles_min_fields';
-  id?: Maybe<Scalars['uuid']>;
-  nickname?: Maybe<Scalars['String']>;
+  __typename?: "profiles_min_fields";
+  id?: Maybe<Scalars["uuid"]>;
+  nickname?: Maybe<Scalars["String"]>;
 };
 
 /** response of any mutation on the table "profiles" */
 export type Profiles_Mutation_Response = {
-  __typename?: 'profiles_mutation_response';
+  __typename?: "profiles_mutation_response";
   /** number of rows affected by the mutation */
-  affected_rows: Scalars['Int'];
+  affected_rows: Scalars["Int"];
   /** data from the rows affected by the mutation */
   returning: Array<Profiles>;
 };
@@ -715,33 +690,33 @@ export type Profiles_Order_By = {
 
 /** primary key columns input for table: profiles */
 export type Profiles_Pk_Columns_Input = {
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 };
 
 /** select columns of table "profiles" */
 export enum Profiles_Select_Column {
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  Nickname = 'nickname'
+  Nickname = "nickname",
 }
 
 /** input type for updating data in table "profiles" */
 export type Profiles_Set_Input = {
-  id?: InputMaybe<Scalars['uuid']>;
-  nickname?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars["uuid"]>;
+  nickname?: InputMaybe<Scalars["String"]>;
 };
 
 /** update columns of table "profiles" */
 export enum Profiles_Update_Column {
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  Nickname = 'nickname'
+  Nickname = "nickname",
 }
 
 export type Query_Root = {
-  __typename?: 'query_root';
+  __typename?: "query_root";
   /** fetch data from the table: "groups" */
   groups: Array<Groups>;
   /** fetch aggregated fields from the table: "groups" */
@@ -767,101 +742,89 @@ export type Query_Root = {
   /** fetch data from the table: "users" using primary key columns */
   users_by_pk?: Maybe<Users>;
 };
-
 
 export type Query_RootGroupsArgs = {
   distinct_on?: InputMaybe<Array<Groups_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Groups_Order_By>>;
   where?: InputMaybe<Groups_Bool_Exp>;
 };
-
 
 export type Query_RootGroups_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Groups_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Groups_Order_By>>;
   where?: InputMaybe<Groups_Bool_Exp>;
 };
 
-
 export type Query_RootGroups_By_PkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 };
-
 
 export type Query_RootProfile_UsersArgs = {
   distinct_on?: InputMaybe<Array<Profile_Users_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Profile_Users_Order_By>>;
   where?: InputMaybe<Profile_Users_Bool_Exp>;
 };
-
 
 export type Query_RootProfile_Users_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Profile_Users_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Profile_Users_Order_By>>;
   where?: InputMaybe<Profile_Users_Bool_Exp>;
 };
 
-
 export type Query_RootProfile_Users_By_PkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 };
-
 
 export type Query_RootProfilesArgs = {
   distinct_on?: InputMaybe<Array<Profiles_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Profiles_Order_By>>;
   where?: InputMaybe<Profiles_Bool_Exp>;
 };
-
 
 export type Query_RootProfiles_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Profiles_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Profiles_Order_By>>;
   where?: InputMaybe<Profiles_Bool_Exp>;
 };
 
-
 export type Query_RootProfiles_By_PkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 };
-
 
 export type Query_RootUsersArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Users_Order_By>>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
-
 
 export type Query_RootUsers_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Users_Order_By>>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
 
-
 export type Query_RootUsers_By_PkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 };
 
 export type Subscription_Root = {
-  __typename?: 'subscription_root';
+  __typename?: "subscription_root";
   /** fetch data from the table: "groups" */
   groups: Array<Groups>;
   /** fetch aggregated fields from the table: "groups" */
@@ -888,96 +851,84 @@ export type Subscription_Root = {
   users_by_pk?: Maybe<Users>;
 };
 
-
 export type Subscription_RootGroupsArgs = {
   distinct_on?: InputMaybe<Array<Groups_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Groups_Order_By>>;
   where?: InputMaybe<Groups_Bool_Exp>;
 };
-
 
 export type Subscription_RootGroups_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Groups_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Groups_Order_By>>;
   where?: InputMaybe<Groups_Bool_Exp>;
 };
 
-
 export type Subscription_RootGroups_By_PkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 };
-
 
 export type Subscription_RootProfile_UsersArgs = {
   distinct_on?: InputMaybe<Array<Profile_Users_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Profile_Users_Order_By>>;
   where?: InputMaybe<Profile_Users_Bool_Exp>;
 };
-
 
 export type Subscription_RootProfile_Users_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Profile_Users_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Profile_Users_Order_By>>;
   where?: InputMaybe<Profile_Users_Bool_Exp>;
 };
 
-
 export type Subscription_RootProfile_Users_By_PkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 };
-
 
 export type Subscription_RootProfilesArgs = {
   distinct_on?: InputMaybe<Array<Profiles_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Profiles_Order_By>>;
   where?: InputMaybe<Profiles_Bool_Exp>;
 };
-
 
 export type Subscription_RootProfiles_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Profiles_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Profiles_Order_By>>;
   where?: InputMaybe<Profiles_Bool_Exp>;
 };
 
-
 export type Subscription_RootProfiles_By_PkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 };
-
 
 export type Subscription_RootUsersArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Users_Order_By>>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
-
 
 export type Subscription_RootUsers_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Users_Order_By>>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
 
-
 export type Subscription_RootUsers_By_PkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 };
 
 export type Timestamptz_Cast_Exp = {
@@ -987,75 +938,72 @@ export type Timestamptz_Cast_Exp = {
 /** Boolean expression to compare columns of type "timestamptz". All fields are combined with logical 'AND'. */
 export type Timestamptz_Comparison_Exp = {
   _cast?: InputMaybe<Timestamptz_Cast_Exp>;
-  _eq?: InputMaybe<Scalars['timestamptz']>;
-  _gt?: InputMaybe<Scalars['timestamptz']>;
-  _gte?: InputMaybe<Scalars['timestamptz']>;
-  _in?: InputMaybe<Array<Scalars['timestamptz']>>;
-  _is_null?: InputMaybe<Scalars['Boolean']>;
-  _lt?: InputMaybe<Scalars['timestamptz']>;
-  _lte?: InputMaybe<Scalars['timestamptz']>;
-  _neq?: InputMaybe<Scalars['timestamptz']>;
-  _nin?: InputMaybe<Array<Scalars['timestamptz']>>;
+  _eq?: InputMaybe<Scalars["timestamptz"]>;
+  _gt?: InputMaybe<Scalars["timestamptz"]>;
+  _gte?: InputMaybe<Scalars["timestamptz"]>;
+  _in?: InputMaybe<Array<Scalars["timestamptz"]>>;
+  _is_null?: InputMaybe<Scalars["Boolean"]>;
+  _lt?: InputMaybe<Scalars["timestamptz"]>;
+  _lte?: InputMaybe<Scalars["timestamptz"]>;
+  _neq?: InputMaybe<Scalars["timestamptz"]>;
+  _nin?: InputMaybe<Array<Scalars["timestamptz"]>>;
 };
 
 /** columns and relationships of "users" */
 export type Users = {
-  __typename?: 'users';
-  created_at: Scalars['timestamptz'];
+  __typename?: "users";
+  created_at: Scalars["timestamptz"];
   /** An object relationship */
   group?: Maybe<Groups>;
-  group_id?: Maybe<Scalars['uuid']>;
-  id: Scalars['uuid'];
-  name: Scalars['String'];
+  group_id?: Maybe<Scalars["uuid"]>;
+  id: Scalars["uuid"];
+  name: Scalars["String"];
   /** An object relationship */
   profile?: Maybe<Profiles>;
-  profile_id?: Maybe<Scalars['uuid']>;
+  profile_id?: Maybe<Scalars["uuid"]>;
   /** An array relationship */
   profile_users: Array<Profile_Users>;
   /** An aggregate relationship */
   profile_users_aggregate: Profile_Users_Aggregate;
 };
 
-
 /** columns and relationships of "users" */
 export type UsersProfile_UsersArgs = {
   distinct_on?: InputMaybe<Array<Profile_Users_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Profile_Users_Order_By>>;
   where?: InputMaybe<Profile_Users_Bool_Exp>;
 };
 
-
 /** columns and relationships of "users" */
 export type UsersProfile_Users_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Profile_Users_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Profile_Users_Order_By>>;
   where?: InputMaybe<Profile_Users_Bool_Exp>;
 };
 
 /** aggregated selection of "users" */
 export type Users_Aggregate = {
-  __typename?: 'users_aggregate';
+  __typename?: "users_aggregate";
   aggregate?: Maybe<Users_Aggregate_Fields>;
   nodes: Array<Users>;
 };
 
 /** aggregate fields of "users" */
 export type Users_Aggregate_Fields = {
-  __typename?: 'users_aggregate_fields';
-  count: Scalars['Int'];
+  __typename?: "users_aggregate_fields";
+  count: Scalars["Int"];
   max?: Maybe<Users_Max_Fields>;
   min?: Maybe<Users_Min_Fields>;
 };
 
-
 /** aggregate fields of "users" */
 export type Users_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Users_Select_Column>>;
-  distinct?: InputMaybe<Scalars['Boolean']>;
+  distinct?: InputMaybe<Scalars["Boolean"]>;
 };
 
 /** order by aggregate values of table "users" */
@@ -1090,31 +1038,31 @@ export type Users_Bool_Exp = {
 /** unique or primary key constraints on table "users" */
 export enum Users_Constraint {
   /** unique or primary key constraint on columns "id" */
-  UsersPkey = 'users_pkey',
+  UsersPkey = "users_pkey",
   /** unique or primary key constraint on columns "profile_id" */
-  UsersProfileIdKey = 'users_profile_id_key'
+  UsersProfileIdKey = "users_profile_id_key",
 }
 
 /** input type for inserting data into table "users" */
 export type Users_Insert_Input = {
-  created_at?: InputMaybe<Scalars['timestamptz']>;
+  created_at?: InputMaybe<Scalars["timestamptz"]>;
   group?: InputMaybe<Groups_Obj_Rel_Insert_Input>;
-  group_id?: InputMaybe<Scalars['uuid']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  name?: InputMaybe<Scalars['String']>;
+  group_id?: InputMaybe<Scalars["uuid"]>;
+  id?: InputMaybe<Scalars["uuid"]>;
+  name?: InputMaybe<Scalars["String"]>;
   profile?: InputMaybe<Profiles_Obj_Rel_Insert_Input>;
-  profile_id?: InputMaybe<Scalars['uuid']>;
+  profile_id?: InputMaybe<Scalars["uuid"]>;
   profile_users?: InputMaybe<Profile_Users_Arr_Rel_Insert_Input>;
 };
 
 /** aggregate max on columns */
 export type Users_Max_Fields = {
-  __typename?: 'users_max_fields';
-  created_at?: Maybe<Scalars['timestamptz']>;
-  group_id?: Maybe<Scalars['uuid']>;
-  id?: Maybe<Scalars['uuid']>;
-  name?: Maybe<Scalars['String']>;
-  profile_id?: Maybe<Scalars['uuid']>;
+  __typename?: "users_max_fields";
+  created_at?: Maybe<Scalars["timestamptz"]>;
+  group_id?: Maybe<Scalars["uuid"]>;
+  id?: Maybe<Scalars["uuid"]>;
+  name?: Maybe<Scalars["String"]>;
+  profile_id?: Maybe<Scalars["uuid"]>;
 };
 
 /** order by max() on columns of table "users" */
@@ -1128,12 +1076,12 @@ export type Users_Max_Order_By = {
 
 /** aggregate min on columns */
 export type Users_Min_Fields = {
-  __typename?: 'users_min_fields';
-  created_at?: Maybe<Scalars['timestamptz']>;
-  group_id?: Maybe<Scalars['uuid']>;
-  id?: Maybe<Scalars['uuid']>;
-  name?: Maybe<Scalars['String']>;
-  profile_id?: Maybe<Scalars['uuid']>;
+  __typename?: "users_min_fields";
+  created_at?: Maybe<Scalars["timestamptz"]>;
+  group_id?: Maybe<Scalars["uuid"]>;
+  id?: Maybe<Scalars["uuid"]>;
+  name?: Maybe<Scalars["String"]>;
+  profile_id?: Maybe<Scalars["uuid"]>;
 };
 
 /** order by min() on columns of table "users" */
@@ -1147,9 +1095,9 @@ export type Users_Min_Order_By = {
 
 /** response of any mutation on the table "users" */
 export type Users_Mutation_Response = {
-  __typename?: 'users_mutation_response';
+  __typename?: "users_mutation_response";
   /** number of rows affected by the mutation */
-  affected_rows: Scalars['Int'];
+  affected_rows: Scalars["Int"];
   /** data from the rows affected by the mutation */
   returning: Array<Users>;
 };
@@ -1182,44 +1130,44 @@ export type Users_Order_By = {
 
 /** primary key columns input for table: users */
 export type Users_Pk_Columns_Input = {
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 };
 
 /** select columns of table "users" */
 export enum Users_Select_Column {
   /** column name */
-  CreatedAt = 'created_at',
+  CreatedAt = "created_at",
   /** column name */
-  GroupId = 'group_id',
+  GroupId = "group_id",
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  Name = 'name',
+  Name = "name",
   /** column name */
-  ProfileId = 'profile_id'
+  ProfileId = "profile_id",
 }
 
 /** input type for updating data in table "users" */
 export type Users_Set_Input = {
-  created_at?: InputMaybe<Scalars['timestamptz']>;
-  group_id?: InputMaybe<Scalars['uuid']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  name?: InputMaybe<Scalars['String']>;
-  profile_id?: InputMaybe<Scalars['uuid']>;
+  created_at?: InputMaybe<Scalars["timestamptz"]>;
+  group_id?: InputMaybe<Scalars["uuid"]>;
+  id?: InputMaybe<Scalars["uuid"]>;
+  name?: InputMaybe<Scalars["String"]>;
+  profile_id?: InputMaybe<Scalars["uuid"]>;
 };
 
 /** update columns of table "users" */
 export enum Users_Update_Column {
   /** column name */
-  CreatedAt = 'created_at',
+  CreatedAt = "created_at",
   /** column name */
-  GroupId = 'group_id',
+  GroupId = "group_id",
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  Name = 'name',
+  Name = "name",
   /** column name */
-  ProfileId = 'profile_id'
+  ProfileId = "profile_id",
 }
 
 export type Uuid_Cast_Exp = {
@@ -1229,66 +1177,102 @@ export type Uuid_Cast_Exp = {
 /** Boolean expression to compare columns of type "uuid". All fields are combined with logical 'AND'. */
 export type Uuid_Comparison_Exp = {
   _cast?: InputMaybe<Uuid_Cast_Exp>;
-  _eq?: InputMaybe<Scalars['uuid']>;
-  _gt?: InputMaybe<Scalars['uuid']>;
-  _gte?: InputMaybe<Scalars['uuid']>;
-  _in?: InputMaybe<Array<Scalars['uuid']>>;
-  _is_null?: InputMaybe<Scalars['Boolean']>;
-  _lt?: InputMaybe<Scalars['uuid']>;
-  _lte?: InputMaybe<Scalars['uuid']>;
-  _neq?: InputMaybe<Scalars['uuid']>;
-  _nin?: InputMaybe<Array<Scalars['uuid']>>;
+  _eq?: InputMaybe<Scalars["uuid"]>;
+  _gt?: InputMaybe<Scalars["uuid"]>;
+  _gte?: InputMaybe<Scalars["uuid"]>;
+  _in?: InputMaybe<Array<Scalars["uuid"]>>;
+  _is_null?: InputMaybe<Scalars["Boolean"]>;
+  _lt?: InputMaybe<Scalars["uuid"]>;
+  _lte?: InputMaybe<Scalars["uuid"]>;
+  _neq?: InputMaybe<Scalars["uuid"]>;
+  _nin?: InputMaybe<Array<Scalars["uuid"]>>;
 };
 
-export type GetUsersQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetUsersQueryVariables = Exact<{ [key: string]: never }>;
 
+export type GetUsersQuery = {
+  __typename?: "query_root";
+  users: Array<{
+    __typename?: "users";
+    id: any;
+    name: string;
+    created_at: any;
+  }>;
+};
 
-export type GetUsersQuery = { __typename?: 'query_root', users: Array<{ __typename?: 'users', id: any, name: string, created_at: any }> };
+export type GetUserIdsQueryVariables = Exact<{ [key: string]: never }>;
 
-export type GetUserIdsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetUserIdsQuery = { __typename?: 'query_root', users: Array<{ __typename?: 'users', id: any }> };
+export type GetUserIdsQuery = {
+  __typename?: "query_root";
+  users: Array<{ __typename?: "users"; id: any }>;
+};
 
 export type GetUserByIdQueryVariables = Exact<{
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 }>;
 
-
-export type GetUserByIdQuery = { __typename?: 'query_root', users_by_pk?: { __typename?: 'users', id: any, name: string, created_at: any } | null };
+export type GetUserByIdQuery = {
+  __typename?: "query_root";
+  users_by_pk?: {
+    __typename?: "users";
+    id: any;
+    name: string;
+    created_at: any;
+  } | null;
+};
 
 export type CreateUserMutationVariables = Exact<{
-  name: Scalars['String'];
+  name: Scalars["String"];
 }>;
 
-
-export type CreateUserMutation = { __typename?: 'mutation_root', insert_users_one?: { __typename?: 'users', id: any, name: string, created_at: any } | null };
+export type CreateUserMutation = {
+  __typename?: "mutation_root";
+  insert_users_one?: {
+    __typename?: "users";
+    id: any;
+    name: string;
+    created_at: any;
+  } | null;
+};
 
 export type DeleteUserMutationVariables = Exact<{
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 }>;
 
-
-export type DeleteUserMutation = { __typename?: 'mutation_root', delete_users_by_pk?: { __typename?: 'users', id: any, name: string, created_at: any } | null };
+export type DeleteUserMutation = {
+  __typename?: "mutation_root";
+  delete_users_by_pk?: {
+    __typename?: "users";
+    id: any;
+    name: string;
+    created_at: any;
+  } | null;
+};
 
 export type UpdateUserMutationVariables = Exact<{
-  id: Scalars['uuid'];
-  name: Scalars['String'];
+  id: Scalars["uuid"];
+  name: Scalars["String"];
 }>;
 
-
-export type UpdateUserMutation = { __typename?: 'mutation_root', update_users_by_pk?: { __typename?: 'users', id: any, name: string, created_at: any } | null };
-
+export type UpdateUserMutation = {
+  __typename?: "mutation_root";
+  update_users_by_pk?: {
+    __typename?: "users";
+    id: any;
+    name: string;
+    created_at: any;
+  } | null;
+};
 
 export const GetUsersDocument = gql`
-    query GetUsers {
-  users(order_by: {created_at: desc}) {
-    id
-    name
-    created_at
+  query GetUsers {
+    users(order_by: { created_at: desc }) {
+      id
+      name
+      created_at
+    }
   }
-}
-    `;
+`;
 
 /**
  * __useGetUsersQuery__
@@ -1305,24 +1289,42 @@ export const GetUsersDocument = gql`
  *   },
  * });
  */
-export function useGetUsersQuery(baseOptions?: Apollo.QueryHookOptions<GetUsersQuery, GetUsersQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetUsersQuery, GetUsersQueryVariables>(GetUsersDocument, options);
-      }
-export function useGetUsersLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUsersQuery, GetUsersQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetUsersQuery, GetUsersQueryVariables>(GetUsersDocument, options);
-        }
-export type GetUsersQueryHookResult = ReturnType<typeof useGetUsersQuery>;
-export type GetUsersLazyQueryHookResult = ReturnType<typeof useGetUsersLazyQuery>;
-export type GetUsersQueryResult = Apollo.QueryResult<GetUsersQuery, GetUsersQueryVariables>;
-export const GetUserIdsDocument = gql`
-    query GetUserIds {
-  users(order_by: {created_at: desc}) {
-    id
-  }
+export function useGetUsersQuery(
+  baseOptions?: Apollo.QueryHookOptions<GetUsersQuery, GetUsersQueryVariables>
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetUsersQuery, GetUsersQueryVariables>(
+    GetUsersDocument,
+    options
+  );
 }
-    `;
+export function useGetUsersLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetUsersQuery,
+    GetUsersQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetUsersQuery, GetUsersQueryVariables>(
+    GetUsersDocument,
+    options
+  );
+}
+export type GetUsersQueryHookResult = ReturnType<typeof useGetUsersQuery>;
+export type GetUsersLazyQueryHookResult = ReturnType<
+  typeof useGetUsersLazyQuery
+>;
+export type GetUsersQueryResult = Apollo.QueryResult<
+  GetUsersQuery,
+  GetUsersQueryVariables
+>;
+export const GetUserIdsDocument = gql`
+  query GetUserIds {
+    users(order_by: { created_at: desc }) {
+      id
+    }
+  }
+`;
 
 /**
  * __useGetUserIdsQuery__
@@ -1339,26 +1341,47 @@ export const GetUserIdsDocument = gql`
  *   },
  * });
  */
-export function useGetUserIdsQuery(baseOptions?: Apollo.QueryHookOptions<GetUserIdsQuery, GetUserIdsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetUserIdsQuery, GetUserIdsQueryVariables>(GetUserIdsDocument, options);
-      }
-export function useGetUserIdsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUserIdsQuery, GetUserIdsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetUserIdsQuery, GetUserIdsQueryVariables>(GetUserIdsDocument, options);
-        }
-export type GetUserIdsQueryHookResult = ReturnType<typeof useGetUserIdsQuery>;
-export type GetUserIdsLazyQueryHookResult = ReturnType<typeof useGetUserIdsLazyQuery>;
-export type GetUserIdsQueryResult = Apollo.QueryResult<GetUserIdsQuery, GetUserIdsQueryVariables>;
-export const GetUserByIdDocument = gql`
-    query GetUserById($id: uuid!) {
-  users_by_pk(id: $id) {
-    id
-    name
-    created_at
-  }
+export function useGetUserIdsQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    GetUserIdsQuery,
+    GetUserIdsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetUserIdsQuery, GetUserIdsQueryVariables>(
+    GetUserIdsDocument,
+    options
+  );
 }
-    `;
+export function useGetUserIdsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetUserIdsQuery,
+    GetUserIdsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetUserIdsQuery, GetUserIdsQueryVariables>(
+    GetUserIdsDocument,
+    options
+  );
+}
+export type GetUserIdsQueryHookResult = ReturnType<typeof useGetUserIdsQuery>;
+export type GetUserIdsLazyQueryHookResult = ReturnType<
+  typeof useGetUserIdsLazyQuery
+>;
+export type GetUserIdsQueryResult = Apollo.QueryResult<
+  GetUserIdsQuery,
+  GetUserIdsQueryVariables
+>;
+export const GetUserByIdDocument = gql`
+  query GetUserById($id: uuid!) {
+    users_by_pk(id: $id) {
+      id
+      name
+      created_at
+    }
+  }
+`;
 
 /**
  * __useGetUserByIdQuery__
@@ -1376,27 +1399,51 @@ export const GetUserByIdDocument = gql`
  *   },
  * });
  */
-export function useGetUserByIdQuery(baseOptions: Apollo.QueryHookOptions<GetUserByIdQuery, GetUserByIdQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetUserByIdQuery, GetUserByIdQueryVariables>(GetUserByIdDocument, options);
-      }
-export function useGetUserByIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUserByIdQuery, GetUserByIdQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetUserByIdQuery, GetUserByIdQueryVariables>(GetUserByIdDocument, options);
-        }
-export type GetUserByIdQueryHookResult = ReturnType<typeof useGetUserByIdQuery>;
-export type GetUserByIdLazyQueryHookResult = ReturnType<typeof useGetUserByIdLazyQuery>;
-export type GetUserByIdQueryResult = Apollo.QueryResult<GetUserByIdQuery, GetUserByIdQueryVariables>;
-export const CreateUserDocument = gql`
-    mutation CreateUser($name: String!) {
-  insert_users_one(object: {name: $name}) {
-    id
-    name
-    created_at
-  }
+export function useGetUserByIdQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    GetUserByIdQuery,
+    GetUserByIdQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetUserByIdQuery, GetUserByIdQueryVariables>(
+    GetUserByIdDocument,
+    options
+  );
 }
-    `;
-export type CreateUserMutationFn = Apollo.MutationFunction<CreateUserMutation, CreateUserMutationVariables>;
+export function useGetUserByIdLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetUserByIdQuery,
+    GetUserByIdQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetUserByIdQuery, GetUserByIdQueryVariables>(
+    GetUserByIdDocument,
+    options
+  );
+}
+export type GetUserByIdQueryHookResult = ReturnType<typeof useGetUserByIdQuery>;
+export type GetUserByIdLazyQueryHookResult = ReturnType<
+  typeof useGetUserByIdLazyQuery
+>;
+export type GetUserByIdQueryResult = Apollo.QueryResult<
+  GetUserByIdQuery,
+  GetUserByIdQueryVariables
+>;
+export const CreateUserDocument = gql`
+  mutation CreateUser($name: String!) {
+    insert_users_one(object: { name: $name }) {
+      id
+      name
+      created_at
+    }
+  }
+`;
+export type CreateUserMutationFn = Apollo.MutationFunction<
+  CreateUserMutation,
+  CreateUserMutationVariables
+>;
 
 /**
  * __useCreateUserMutation__
@@ -1415,23 +1462,40 @@ export type CreateUserMutationFn = Apollo.MutationFunction<CreateUserMutation, C
  *   },
  * });
  */
-export function useCreateUserMutation(baseOptions?: Apollo.MutationHookOptions<CreateUserMutation, CreateUserMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<CreateUserMutation, CreateUserMutationVariables>(CreateUserDocument, options);
-      }
-export type CreateUserMutationHookResult = ReturnType<typeof useCreateUserMutation>;
-export type CreateUserMutationResult = Apollo.MutationResult<CreateUserMutation>;
-export type CreateUserMutationOptions = Apollo.BaseMutationOptions<CreateUserMutation, CreateUserMutationVariables>;
-export const DeleteUserDocument = gql`
-    mutation DeleteUser($id: uuid!) {
-  delete_users_by_pk(id: $id) {
-    id
-    name
-    created_at
-  }
+export function useCreateUserMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    CreateUserMutation,
+    CreateUserMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<CreateUserMutation, CreateUserMutationVariables>(
+    CreateUserDocument,
+    options
+  );
 }
-    `;
-export type DeleteUserMutationFn = Apollo.MutationFunction<DeleteUserMutation, DeleteUserMutationVariables>;
+export type CreateUserMutationHookResult = ReturnType<
+  typeof useCreateUserMutation
+>;
+export type CreateUserMutationResult =
+  Apollo.MutationResult<CreateUserMutation>;
+export type CreateUserMutationOptions = Apollo.BaseMutationOptions<
+  CreateUserMutation,
+  CreateUserMutationVariables
+>;
+export const DeleteUserDocument = gql`
+  mutation DeleteUser($id: uuid!) {
+    delete_users_by_pk(id: $id) {
+      id
+      name
+      created_at
+    }
+  }
+`;
+export type DeleteUserMutationFn = Apollo.MutationFunction<
+  DeleteUserMutation,
+  DeleteUserMutationVariables
+>;
 
 /**
  * __useDeleteUserMutation__
@@ -1450,23 +1514,40 @@ export type DeleteUserMutationFn = Apollo.MutationFunction<DeleteUserMutation, D
  *   },
  * });
  */
-export function useDeleteUserMutation(baseOptions?: Apollo.MutationHookOptions<DeleteUserMutation, DeleteUserMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<DeleteUserMutation, DeleteUserMutationVariables>(DeleteUserDocument, options);
-      }
-export type DeleteUserMutationHookResult = ReturnType<typeof useDeleteUserMutation>;
-export type DeleteUserMutationResult = Apollo.MutationResult<DeleteUserMutation>;
-export type DeleteUserMutationOptions = Apollo.BaseMutationOptions<DeleteUserMutation, DeleteUserMutationVariables>;
-export const UpdateUserDocument = gql`
-    mutation UpdateUser($id: uuid!, $name: String!) {
-  update_users_by_pk(pk_columns: {id: $id}, _set: {name: $name}) {
-    id
-    name
-    created_at
-  }
+export function useDeleteUserMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    DeleteUserMutation,
+    DeleteUserMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<DeleteUserMutation, DeleteUserMutationVariables>(
+    DeleteUserDocument,
+    options
+  );
 }
-    `;
-export type UpdateUserMutationFn = Apollo.MutationFunction<UpdateUserMutation, UpdateUserMutationVariables>;
+export type DeleteUserMutationHookResult = ReturnType<
+  typeof useDeleteUserMutation
+>;
+export type DeleteUserMutationResult =
+  Apollo.MutationResult<DeleteUserMutation>;
+export type DeleteUserMutationOptions = Apollo.BaseMutationOptions<
+  DeleteUserMutation,
+  DeleteUserMutationVariables
+>;
+export const UpdateUserDocument = gql`
+  mutation UpdateUser($id: uuid!, $name: String!) {
+    update_users_by_pk(pk_columns: { id: $id }, _set: { name: $name }) {
+      id
+      name
+      created_at
+    }
+  }
+`;
+export type UpdateUserMutationFn = Apollo.MutationFunction<
+  UpdateUserMutation,
+  UpdateUserMutationVariables
+>;
 
 /**
  * __useUpdateUserMutation__
@@ -1486,10 +1567,24 @@ export type UpdateUserMutationFn = Apollo.MutationFunction<UpdateUserMutation, U
  *   },
  * });
  */
-export function useUpdateUserMutation(baseOptions?: Apollo.MutationHookOptions<UpdateUserMutation, UpdateUserMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<UpdateUserMutation, UpdateUserMutationVariables>(UpdateUserDocument, options);
-      }
-export type UpdateUserMutationHookResult = ReturnType<typeof useUpdateUserMutation>;
-export type UpdateUserMutationResult = Apollo.MutationResult<UpdateUserMutation>;
-export type UpdateUserMutationOptions = Apollo.BaseMutationOptions<UpdateUserMutation, UpdateUserMutationVariables>;
+export function useUpdateUserMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    UpdateUserMutation,
+    UpdateUserMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<UpdateUserMutation, UpdateUserMutationVariables>(
+    UpdateUserDocument,
+    options
+  );
+}
+export type UpdateUserMutationHookResult = ReturnType<
+  typeof useUpdateUserMutation
+>;
+export type UpdateUserMutationResult =
+  Apollo.MutationResult<UpdateUserMutation>;
+export type UpdateUserMutationOptions = Apollo.BaseMutationOptions<
+  UpdateUserMutation,
+  UpdateUserMutationVariables
+>;
